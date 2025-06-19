@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ntandoblessingcapalot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .rating-section {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .stars {
+      font-size: 24px;
+      cursor: pointer;
+      color: gray;
+    }
+
+    .stars .active {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ntando Blessing Tlou</h1>
+
+  <p>
+    Hello, this is a testing space for my new website.  
+    I am a young 19-year-old guy trying to learn coding.
+  </p>
+
+  <div class="rating-section">
+    <h2>Rate this Website ⭐</h2>
+    <div id="stars" class="stars">
+      ★★★★★
+    </div>
+    <p id="ratingMessage" style="margin-top: 10px; font-weight: bold;"></p>
+  </div>
+
+  <script>
+    const starsEl = document.getElementById('stars');
+    const messageEl = document.getElementById('ratingMessage');
+
+    starsEl.addEventListener('click', function(e) {
+      const clickedIndex = Array.from(starsEl.textContent).indexOf(e.target.textContent);
+      if (clickedIndex !== -1) {
+        const rating = clickedIndex + 1;
+        starsEl.innerHTML = '★★★★★'.split('').map((star, i) => {
+          return `<span class="${i < rating ? 'active' : ''}">${star}</span>`;
+        }).join('');
+        messageEl.textContent = `Thanks! You rated this website ${rating} star${rating > 1 ? 's' : ''}.`;
+      }
+    });
+  </script>
+
+</body>
+</html>
